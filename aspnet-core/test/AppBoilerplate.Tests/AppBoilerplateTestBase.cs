@@ -21,6 +21,8 @@ namespace AppBoilerplate.Tests
     {
         protected AppBoilerplateTestBase()
         {
+            UsingDbContext(context => new TestDataBuilder(context).Build());
+
             void NormalizeDbContext(AppBoilerplateDbContext context)
             {
                 context.EntityChangeEventHelper = NullEntityChangeEventHelper.Instance;
